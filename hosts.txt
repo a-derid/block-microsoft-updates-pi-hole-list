@@ -18,7 +18,7 @@ Number of unique domains: 12
 # https://github.com/a-derid/block-microsoft-updates-pi-hole-list/
 #
 # Fetch the latest version of this file: 
-# https://github.com/a-derid/block-microsoft-updates-pi-hole-list/hosts.txt
+# https://raw.githubusercontent.com/a-derid/block-microsoft-updates-pi-hole-list/refs/heads/main/hosts.txt
 #
 # ===============================================================
   
