@@ -2,7 +2,8 @@
 A simple Pi-hole blocklist for Windows Update, Microsoft Store, and Start Menu "Suggestions" (ads). Designed to keep Windows quiet and stop unpredictable updates.
 
 How to use it?
-Just copy url to txt file and add the full list
+Just copy url add the full list in pi-hole
+https://raw.githubusercontent.com/a-derid/block-microsoft-updates-pi-hole-list/refs/heads/main/hosts.txt
 
 A few things to keep in mind:
 This will stop security patches (!!!). If you care about keeping the PC safe, you should probably unblock these time to time or better found a tool or way comfortable for you to install security patches only.
