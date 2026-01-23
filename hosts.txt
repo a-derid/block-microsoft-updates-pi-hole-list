@@ -1,0 +1,42 @@
+itle: Windows Update, Store, and Start Suggestion Blocklist
+This hosts file is a collection of domains to block Windows Updates,
+the Microsoft Store, and Start Bar suggestions/ads.
+Date: 23 January 2026 11:35:00 (UTC)
+Number of unique domains: 12
+===============================================================
+
+
+# Title: a-derid/block-microsoft-updates-pi-hole-list
+#
+# This hosts file is a collection of domains to block Windows Updates,
+# the Microsoft Store, and Start Bar suggestions/ads.
+#
+# Date: 23 January 2026 11:40:00 (UTC)
+# Number of unique domains: 18
+#
+# Project homepage:
+# https://github.com/a-derid/block-microsoft-updates-pi-hole-list/
+#
+# Fetch the latest version of this file: 
+# https://github.com/a-derid/block-microsoft-updates-pi-hole-list/hosts.txt
+#
+# ===============================================================
+  
+127.0.0.1 sls.update.microsoft.com
+127.0.0.1 sls.update.microsoft.com.akadns.net
+127.0.0.1 fe3.delivery.dsp.mp.microsoft.com.nsatc.net
+127.0.0.1 tlu.dl.delivery.mp.microsoft.com
+127.0.0.1 dl.delivery.mp.microsoft.com
+127.0.0.1 delivery.mp.microsoft.com
+127.0.0.1 geo-prod.do.dsp.mp.microsoft.com
+127.0.0.1 displaycatalog.mp.microsoft.com
+127.0.0.1 windowsupdate.microsoft.com
+127.0.0.1 update.microsoft.com
+127.0.0.1 download.windowsupdate.com
+127.0.0.1 ctldl.windowsupdate.com
+127.0.0.1 redir.metaservices.microsoft.com
+127.0.0.1 images.metaservices.microsoft.com
+127.0.0.1 store-images.s-microsoft.com
+127.0.0.1 c.microsoft.com
+127.0.0.1 arc.msn.com
+127.0.0.1 msedge.api.cdp.microsoft.com
