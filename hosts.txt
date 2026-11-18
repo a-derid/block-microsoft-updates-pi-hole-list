@@ -1,42 +1,73 @@
-itle: Windows Update, Store, and Start Suggestion Blocklist
-This hosts file is a collection of domains to block Windows Updates,
-the Microsoft Store, and Start Bar suggestions/ads.
-Date: 23 January 2026 11:35:00 (UTC)
-Number of unique domains: 12
-===============================================================
-
-
 # Title: a-derid/block-microsoft-updates-pi-hole-list
 #
-# This hosts file is a collection of domains to block Windows Updates,
-# the Microsoft Store, and Start Bar suggestions/ads.
+# Blocks Windows Update (including drivers), the Microsoft Store,
+# and Start menu / lock screen suggestions and ads.
 #
-# Date: 23 January 2026 11:40:00 (UTC)
-# Number of unique domains: 18
+# Still works: Windows activation, Microsoft Defender definitions,
+# root certificate updates, Edge and WebView2 updates, Bing, Office.
+#
+# Not blocked by this list, but needed to keep Edge, WebView2 and
+# HTTPS certificates working:
+#   ctldl.windowsupdate.com       (root certificate updates)
+#   msedge.api.cdp.microsoft.com  (Edge / WebView2 updates)
+#
+# Side effects: Microsoft Store installs and app updates will fail,
+# including updates for built-in apps (Notepad, Terminal, etc.).
+#
+# Hosts files cannot block subdomains. Windows Update also uses
+# numbered servers (e.g. 7.tlu.dl.delivery.mp.microsoft.com).
+# Pi-hole users should also add this as a Regex deny rule
+# for full coverage:
+#
+#   (^|\.)((windows)?update\.microsoft\.com|windowsupdate\.com|(delivery|dsp)\.mp\.microsoft\.com|emdl\.ws\.microsoft\.com)$
+#
+# and add ctldl.windowsupdate.com as an Exact allow rule.
+#
+# To install updates, disable this list temporarily, then
+# run Windows Update.
+#
+# Date: 17 November 2026
+# Number of unique domains: 23
 #
 # Project homepage:
 # https://github.com/a-derid/block-microsoft-updates-pi-hole-list/
 #
-# Fetch the latest version of this file: 
+# Fetch the latest version of this file:
 # https://raw.githubusercontent.com/a-derid/block-microsoft-updates-pi-hole-list/refs/heads/main/hosts.txt
 #
 # ===============================================================
-  
-127.0.0.1 sls.update.microsoft.com
-127.0.0.1 sls.update.microsoft.com.akadns.net
-127.0.0.1 fe3.delivery.dsp.mp.microsoft.com.nsatc.net
-127.0.0.1 tlu.dl.delivery.mp.microsoft.com
-127.0.0.1 dl.delivery.mp.microsoft.com
-127.0.0.1 delivery.mp.microsoft.com
-127.0.0.1 geo-prod.do.dsp.mp.microsoft.com
-127.0.0.1 displaycatalog.mp.microsoft.com
-127.0.0.1 windowsupdate.microsoft.com
-127.0.0.1 update.microsoft.com
-127.0.0.1 download.windowsupdate.com
-127.0.0.1 ctldl.windowsupdate.com
-127.0.0.1 redir.metaservices.microsoft.com
-127.0.0.1 images.metaservices.microsoft.com
-127.0.0.1 store-images.s-microsoft.com
-127.0.0.1 c.microsoft.com
-127.0.0.1 arc.msn.com
-127.0.0.1 msedge.api.cdp.microsoft.com
+
+# --- Windows Update (includes drivers) ---
+0.0.0.0 update.microsoft.com
+0.0.0.0 fe2.update.microsoft.com
+0.0.0.0 sls.update.microsoft.com
+0.0.0.0 slscr.update.microsoft.com
+0.0.0.0 windowsupdate.microsoft.com
+0.0.0.0 download.windowsupdate.com
+0.0.0.0 au.download.windowsupdate.com
+0.0.0.0 emdl.ws.microsoft.com
+
+# --- Update / Store download delivery ---
+0.0.0.0 delivery.mp.microsoft.com
+0.0.0.0 dl.delivery.mp.microsoft.com
+0.0.0.0 tlu.dl.delivery.mp.microsoft.com
+0.0.0.0 fe3.delivery.mp.microsoft.com
+0.0.0.0 fe3cr.delivery.mp.microsoft.com
+0.0.0.0 geo-prod.do.dsp.mp.microsoft.com
+0.0.0.0 tsfe.trafficshaping.dsp.mp.microsoft.com
+
+# --- Microsoft Store ---
+0.0.0.0 displaycatalog.mp.microsoft.com
+0.0.0.0 storeedgefd.dsx.mp.microsoft.com
+0.0.0.0 store-images.s-microsoft.com
+
+# --- Device metadata ---
+0.0.0.0 redir.metaservices.microsoft.com
+0.0.0.0 images.metaservices.microsoft.com
+
+# --- Start menu / lock screen suggestions and ads ---
+0.0.0.0 arc.msn.com
+0.0.0.0 ris.api.iris.microsoft.com
+
+# --- Tracking ---
+0.0.0.0 c.microsoft.com
